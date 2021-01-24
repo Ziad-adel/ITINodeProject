@@ -5,6 +5,10 @@ const {
     getAll,
     editOne,
     findone,
+    follow,
+    unfollow,
+    getfollowers,
+    getfollowing,
 } = require('../controllers/user');
 const authMiddleware = require('../Middlewares/auth');
 const User = require('../models/User');
@@ -91,7 +95,7 @@ router.put('/unfollow/:unfollowId', authMiddleware, (req, res) => {
         User.findByIdAndUpdate(req.user._id, {
             $pull: { following: req.params.unfollowId }
 
-        }, { new: true }).select("username").then(result => {
+        }, { new: true }).select("").then(result => {
             res.json(result)
         }).catch(err => {
             return res.status(422).json({ error: err })
@@ -99,4 +103,6 @@ router.put('/unfollow/:unfollowId', authMiddleware, (req, res) => {
 
     })
 });
+
+
 module.exports = router;

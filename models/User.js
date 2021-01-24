@@ -15,19 +15,15 @@ const userSchema = new Schema({
         required: true,
     },
     following: [{
-            user: {
-                type: Schema.ObjectId,
-                ref: 'User'
-            },
-        }
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
 
     ],
     followers: [{
-        user: {
-            type: Schema.ObjectId,
-            ref: 'User'
-        },
-    }],
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }, ],
     email: {
         type: String,
     },
