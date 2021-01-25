@@ -1,6 +1,6 @@
 const express = require('express');
 const blog = require('./blog');
-const user = require('./user');
+const user = require('./User');
 const authMiddleware = require('../Middlewares/auth');
 const router = express.Router();
 router.use('/users', user);
