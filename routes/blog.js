@@ -111,16 +111,5 @@ router.get('/titles/:title', async(req, res, next) => {
         next(e);
     }
 });
-router.get('/z', async(req, res, next) => {
-    debugger
-    try {
-        debugger
-        const blogs = await getNewest();
-        debugger
-        res.json(blogs);
-    } catch (e) {
-        debugger
-        next(e);
-    }
-});
+
 module.exports = router;
